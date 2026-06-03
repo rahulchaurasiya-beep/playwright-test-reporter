@@ -1,5 +1,5 @@
 {
-  "name": "@rocketium/playwright-reporter",
+  "name": "@rahul_rc34/playwright-reporter",
   "version": "0.1.0",
   "description": "Playwright reporter that streams test results to a Rocketium backend (Currents-compatible data model)",
   "type": "module",
@@ -14,11 +14,14 @@
   },
   "files": [
     "dist",
+    "src",
+    "tsconfig.json",
     "README.md"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "type-check": "tsc -p tsconfig.json --noEmit",
+    "prepare": "pnpm run build",
     "prepublishOnly": "pnpm run build"
   },
   "keywords": [
@@ -28,7 +31,7 @@
     "testing",
     "ci"
   ],
-  "author": "rocketium-devs",
+  "author": "rahul_rc34",
   "license": "ISC",
   "peerDependencies": {
     "@playwright/test": ">=1.40.0"

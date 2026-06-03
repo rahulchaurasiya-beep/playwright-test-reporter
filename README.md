@@ -1,4 +1,4 @@
-# @rocketium/playwright-reporter
+# @rahul_rc34/playwright-reporter
 
 Playwright reporter that streams E2E results to your backend — a self-hosted alternative to `@currents/playwright`.
 
@@ -13,7 +13,7 @@ Playwright reporter that streams E2E results to your backend — a self-hosted a
 ## Install
 
 ```bash
-pnpm add @rocketium/playwright-reporter
+pnpm add @rahul_rc34/playwright-reporter
 # or link locally while developing:
 pnpm add file:../rocketium-playwright-reporter
 ```
@@ -22,7 +22,7 @@ pnpm add file:../rocketium-playwright-reporter
 
 ```typescript
 import { defineConfig } from "@playwright/test";
-import { rocketiumReporter } from "@rocketium/playwright-reporter";
+import { rocketiumReporter } from "@rahul_rc34/playwright-reporter";
 
 export default defineConfig({
   reporter:

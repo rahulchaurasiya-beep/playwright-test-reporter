@@ -1,4 +1,4 @@
-import type { RocketiumReporterConfig } from "@rocketium/playwright-reporter";
+import type { RocketiumReporterConfig } from "@rahul_rc34/playwright-reporter";
 
 const config: RocketiumReporterConfig = {
   apiUrl: process.env.REPORTER_API_URL || "http://localhost:3000",
