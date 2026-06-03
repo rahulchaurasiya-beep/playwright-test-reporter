@@ -1,0 +1,45 @@
+{
+  "name": "@rocketium/playwright-reporter",
+  "version": "0.1.0",
+  "description": "Playwright reporter that streams test results to a Rocketium backend (Currents-compatible data model)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "type-check": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "pnpm run build"
+  },
+  "keywords": [
+    "playwright",
+    "reporter",
+    "e2e",
+    "testing",
+    "ci"
+  ],
+  "author": "rocketium-devs",
+  "license": "ISC",
+  "peerDependencies": {
+    "@playwright/test": ">=1.40.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.59.1",
+    "@types/node": "24.0.0",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.4.1"
+}
