@@ -1,6 +1,6 @@
 {
-  "name": "@rahul_rc34/playwright-reporter",
-  "version": "0.1.0",
+  "name": "playwright-rocketium-reporter",
+  "version": "1.0.0",
   "description": "Playwright reporter that streams test results to a Rocketium backend (Currents-compatible data model)",
   "type": "module",
   "main": "./dist/index.js",

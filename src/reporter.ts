@@ -161,7 +161,7 @@ export default class RocketiumReporter implements Reporter {
 export function rocketiumReporter(
   config?: Partial<RocketiumReporterConfig>,
 ): [string, Partial<RocketiumReporterConfig>] {
-  return ["@rahul_rc34/playwright-reporter", config ?? {}];
+  return ["playwright-rocketium-reporter", config ?? {}];
 }
 
 export type { RocketiumReporterConfig } from "./types.js";

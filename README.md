@@ -1,8 +1,8 @@
-# @rahul_rc34/playwright-reporter
+# playwright-rocketium-reporter
 
 Playwright reporter that streams E2E results to your backend — a self-hosted alternative to `@currents/playwright`.
 
-## Features (v0.1)
+## Features (v1.0.0)
 
 - Run / shard / spec / test hierarchy matching Currents UI
 - Git + GitHub Actions metadata
@@ -13,16 +13,16 @@ Playwright reporter that streams E2E results to your backend — a self-hosted a
 ## Install
 
 ```bash
-pnpm add @rahul_rc34/playwright-reporter
+pnpm add playwright-rocketium-reporter
 # or link locally while developing:
-pnpm add file:../rocketium-playwright-reporter
+pnpm add file:../playwright-rocketium-reporter
 ```
 
 ## Playwright config
 
 ```typescript
 import { defineConfig } from "@playwright/test";
-import { rocketiumReporter } from "@rahul_rc34/playwright-reporter";
+import { rocketiumReporter } from "playwright-rocketium-reporter";
 
 export default defineConfig({
   reporter:
