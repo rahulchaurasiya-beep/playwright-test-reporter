@@ -7,7 +7,7 @@ import type {
   TestCase,
   TestResult,
 } from "@playwright/test/reporter";
-import { ReporterApiClient } from "./api-client.js";
+import { createReporterClient, isFileSinkClient } from "./client.js";
 import { uploadTestArtifacts, mapStatus } from "./artifacts.js";
 import { resolveConfig } from "./config.js";
 import { collectCiInfo, collectGitInfo } from "./git-info.js";
@@ -23,7 +23,7 @@ type TestTiming = {
 
 export default class RocketiumReporter implements Reporter {
   private config!: RocketiumReporterConfig;
-  private client!: ReporterApiClient;
+  private client!: ReturnType<typeof createReporterClient>;
   private runStartedAt!: string;
   private testOrder = 0;
   private testTimings = new Map<string, TestTiming>();
@@ -39,7 +39,7 @@ export default class RocketiumReporter implements Reporter {
 
   constructor(options: Partial<RocketiumReporterConfig> = {}) {
     this.config = resolveConfig(options);
-    this.client = new ReporterApiClient(this.config);
+    this.client = createReporterClient(this.config);
   }
 
   printsToStdio(): boolean {
@@ -132,6 +132,10 @@ export default class RocketiumReporter implements Reporter {
 
     for (const message of this.errors) {
       console.error(`[rocketium-reporter] ${message}`);
+    }
+
+    if (isFileSinkClient(this.client)) {
+      console.log(`[rocketium-reporter] Payloads saved to: ${this.client.getRunDirectory()}`);
     }
   }
 

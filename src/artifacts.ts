@@ -1,5 +1,5 @@
 import type { TestResult } from "@playwright/test/reporter";
-import type { ReporterApiClient } from "./api-client.js";
+import type { ReporterClient } from "./client.js";
 import type { ArtifactUploadMeta, RocketiumReporterConfig, TestStatus } from "./types.js";
 
 function mapStatus(status: TestResult["status"]): TestStatus {
@@ -7,7 +7,7 @@ function mapStatus(status: TestResult["status"]): TestStatus {
 }
 
 export async function uploadTestArtifacts(
-  client: ReporterApiClient,
+  client: ReporterClient,
   config: RocketiumReporterConfig,
   params: {
     testId: string;

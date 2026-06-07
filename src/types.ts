@@ -21,7 +21,7 @@ export type CiInfo = {
 };
 
 export type RocketiumReporterConfig = {
-  apiUrl: string;
+  apiUrl?: string;
   apiKey?: string;
   projectId: string;
   ciBuildId?: string;
@@ -31,6 +31,7 @@ export type RocketiumReporterConfig = {
   tags?: string[];
   uploadArtifacts?: boolean;
   debug?: boolean;
+  outputDir?: string;
 };
 
 export type RunStartPayload = {

@@ -33,6 +33,7 @@ export class ReporterApiClient {
   }
 
   private url(path: string): string {
+    if (!this.config.apiUrl) throw new Error("ReporterApiClient requires apiUrl");
     return `${this.config.apiUrl}${path}`;
   }
 
