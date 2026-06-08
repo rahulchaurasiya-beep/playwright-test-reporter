@@ -80,7 +80,14 @@ export default class RocketiumReporter implements Reporter {
     const endedAt = new Date().toISOString();
     const order = timing?.order ?? this.testOrder;
 
-    this.incrementSummary(result.status);
+    const isFinalAttempt =
+      result.status === "passed" ||
+      result.status === "skipped" ||
+      result.retry === test.retries;
+
+    if (isFinalAttempt) {
+      this.incrementSummary(result.status);
+    }
 
     const payload: TestEndPayload = {
       ciBuildId: this.config.ciBuildId!,
@@ -111,6 +118,7 @@ export default class RocketiumReporter implements Reporter {
         testId: test.id,
         specPath: test.location.file,
         result,
+        retryIndex: result.retry,
       });
     } catch (error) {
       this.recordError(`Failed to report test "${test.title}"`, error);

@@ -13,6 +13,7 @@ export async function uploadTestArtifacts(
     testId: string;
     specPath: string;
     result: TestResult;
+    retryIndex: number;
   },
 ): Promise<void> {
   if (!config.uploadArtifacts || params.result.status === "passed") return;
@@ -25,6 +26,7 @@ export async function uploadTestArtifacts(
       shardNumber: config.shardNumber!,
       machineId: config.machineId!,
       testId: params.testId,
+      retryIndex: params.retryIndex,
       specPath: params.specPath,
       name: attachment.name,
       contentType: attachment.contentType ?? guessContentType(attachment.name),

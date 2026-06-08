@@ -35,7 +35,7 @@ export class FileSinkClient {
     const file = join(
       this.runDir,
       "tests",
-      `${String(payload.order).padStart(3, "0")}-${payload.testId}.json`,
+      `${String(payload.order).padStart(3, "0")}-${payload.testId}-r${payload.retryIndex}.json`,
     );
     writeFileSync(file, JSON.stringify({ endpoint: "/api/v1/runs/tests", payload }, null, 2));
   }
@@ -48,7 +48,11 @@ export class FileSinkClient {
   }
 
   async uploadArtifact(filePath: string, meta: ArtifactUploadMeta): Promise<void> {
-    const dest = join(this.runDir, "artifacts", `${meta.testId}-${basename(filePath)}`);
+    const dest = join(
+      this.runDir,
+      "artifacts",
+      `${meta.testId}-r${meta.retryIndex}-${basename(filePath)}`,
+    );
     if (existsSync(filePath)) copyFileSync(filePath, dest);
   }
 }

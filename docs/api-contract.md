@@ -88,6 +88,7 @@ Fields:
 | shardNumber | number |
 | machineId | string |
 | testId | string |
+| retryIndex | number |
 | specPath | string |
 | name | string |
 | contentType | string |

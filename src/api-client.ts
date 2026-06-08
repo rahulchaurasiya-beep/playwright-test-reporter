@@ -60,6 +60,7 @@ export class ReporterApiClient {
     form.append("shardNumber", String(meta.shardNumber));
     form.append("machineId", meta.machineId);
     form.append("testId", meta.testId);
+    form.append("retryIndex", String(meta.retryIndex));
     form.append("specPath", meta.specPath);
     form.append("name", meta.name);
     form.append("contentType", meta.contentType);
